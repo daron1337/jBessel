@@ -11,12 +11,16 @@ Windows users: please download and install Scipy package.
 
 INSTALLATION REQUIREMENTS
 
-Operating systems: Linux or MacOsX
 Cython (http://cython.org/#download)
 
-INSTALLATION HOW TO
+INSTALLATION HOW TO:
 
-To install, run:
+pip install Cython
+pip install jBessel
+
+or download source and run:
+
 python setup.py install 
+
 Then simply start a Python session and do:
 from Bessel import jBessel

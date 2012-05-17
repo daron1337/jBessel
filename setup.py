@@ -1,16 +1,23 @@
 #!/usr/bin/env python
 
+USE_CYTHON = True
+
+if USE_CYTHON:
+    try:
+        from Cython.Distutils import build_ext
+    except ImportError:
+        raise
+
 from distutils.core import setup
 from distutils.extension import Extension
-from Cython.Distutils import build_ext
 import os
-
 
 CLASSIFIERS = ["Development Status :: 5 - Production/Stable",
                "Environment :: Console",
                "Intended Audience :: Science/Research",
                "License :: OSI Approved :: BSD License",
-               "Operating System :: Linux/MacOsX",
+               "Operating System :: MacOS",
+               "Operating System :: POSIX :: Linux",
                "Programming Language :: Cython",
                "Programming Language :: Python",
                "Topic :: Scientific/Engineering"]
@@ -36,7 +43,7 @@ AUTHOR              = "Simone Manini"
 AUTHOR_EMAIL        = "simone.manini@gmail.com"
 PLATFORMS           = "Linux/MacOsX"
 ISRELEASED          = False
-VERSION             = '0.1'
+VERSION             = '0.1.3'
 
 setup(name=NAME,
       maintainer=MAINTAINER,
