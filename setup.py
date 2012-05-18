@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 
-USE_CYTHON = True
-
-if USE_CYTHON:
-    try:
-        from Cython.Distutils import build_ext
-    except ImportError:
-        raise
+try:
+    from Cython.Distutils import build_ext
+except ImportError:
+    print "Please install Cython"
+    raise
 
 from distutils.core import setup
 from distutils.extension import Extension
@@ -42,7 +40,7 @@ CLASSIFIERS         = CLASSIFIERS
 AUTHOR              = "Simone Manini"
 AUTHOR_EMAIL        = "simone.manini@gmail.com"
 PLATFORMS           = "Linux/MacOsX"
-ISRELEASED          = False
+ISRELEASED          = True
 VERSION             = '0.1.3'
 
 setup(name=NAME,
@@ -59,5 +57,6 @@ setup(name=NAME,
       platforms=PLATFORMS,
       version=VERSION,
       cmdclass = {'build_ext': build_ext},
+      script_args = ['build_ext', '--inplace'],
       ext_modules = [Extension("Bessel", ["Bessel.pyx"])]
      )
